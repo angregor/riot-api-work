@@ -1,10 +1,28 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var https = require('https');
+var mykey = //your key here;
+var lolapi = require('leagueapi');
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/client/index.html'));
+lolapi.init(mykey, 'na');
+
+app.use(express.static(__dirname + '/client'));
+
+app.get('/:name', function(req, res) {
+  console.log(req.params.name);
+  lolapi.Summoner.getByName(req.params.name, function(err, summoner) {
+    console.log(summoner);
+    res.json(summoner);
+  })
 });
 
+app.get('/:name/:id', function(req, res) {
+  console.log(req.params.id);
+  lolapi.getLeagueEntryData(req.params.id, function(err, json) {
+    console.log(json);
+    res.json(json);
+  })
+});
 app.listen(1337);
 console.log('running on port 1337');
