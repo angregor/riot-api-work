@@ -10,17 +10,23 @@ function getSummoner() {
 
     },
     success: function (summoner) {
+      //bug testing
       console.log("got summoner");
       console.log(summoner);
+      //parse data from JSON into variables
       var name = summoner[myname].name.toString();
       var level = summoner[myname].summonerLevel.toString();
       var id = summoner[myname].id.toString();
       var profileicon = summoner[myname].profileIconId.toString();
       var iconsrc = "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/" + profileicon +".png";
+      //empty previous name
+      $('#summonernametext').empty();
+      //set the icon image attributes
       $('#profileicon').attr('src', iconsrc);
       $('#profileicon').attr('width', 50);
       $('#profileicon').attr('length', 50);
-      $('#summonernameid').append("    " + name);
+      //set the name and level
+      $('#summonernametext').append("    " + name);
       $('#summonerlevelid').text(level);
       //now look up ranked info
       $.ajax({

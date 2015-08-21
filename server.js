@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var https = require('https');
-var mykey = //your key here;
+var mykey = //yourapikeyhere
 var lolapi = require('leagueapi');
 
 lolapi.init(mykey, 'na');

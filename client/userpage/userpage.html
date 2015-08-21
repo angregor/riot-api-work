@@ -41,7 +41,16 @@
       var name = summoner[myname].name.toString();
       var level = summoner[myname].summonerLevel.toString();
       var id = summoner[myname].id.toString();
-      $('#summonernameid').text(name);
+      var profileicon = summoner[myname].profileIconId.toString();
+      var iconsrc = "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/" + profileicon +".png";
+      //empty previous name
+      $('#summonernametext').empty();
+      //set the icon image attributes
+      $('#profileicon').attr('src', iconsrc);
+      $('#profileicon').attr('width', 50);
+      $('#profileicon').attr('length', 50);
+      //set the name and level
+      $('#summonernametext').append("    " + name);
       $('#summonerlevelid').text(level);
       //now look up ranked info
       $.ajax({
@@ -89,7 +98,16 @@ function getSummoner() {
       var name = summoner[myname].name.toString();
       var level = summoner[myname].summonerLevel.toString();
       var id = summoner[myname].id.toString();
-      $('#summonernameid').text(name);
+      var profileicon = summoner[myname].profileIconId.toString();
+      var iconsrc = "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/" + profileicon +".png";
+      //empty previous name
+      $('#summonernametext').empty();
+      //set the icon image attributes
+      $('#profileicon').attr('src', iconsrc);
+      $('#profileicon').attr('width', 50);
+      $('#profileicon').attr('length', 50);
+      //set the name and level
+      $('#summonernametext').append("    " + name);
       $('#summonerlevelid').text(level);
       //now look up ranked info
       $.ajax({
@@ -122,6 +140,22 @@ function getSummoner() {
 }
 </script>
 
+<!-- My CSS -->
+<style> html {
+  text-align: center;
+}
+
+#summonername {
+  display: inline-block;
+}
+
+#inline {
+  clear: left;
+  float: left;
+  width: 600px;
+}
+</style>
+
 <!--End Dependencies -->
 
 </head>
@@ -130,7 +164,14 @@ function getSummoner() {
     <h2> Enter your summoner name: </h2>
         <input id="username" />
         <input class="btn-primary" onclick="getSummoner();" type="submit" />
-      <h1> Summoner Name: <h2 id="summonernameid"></h2></h1>
+      </br>
+      <div id="summonername">
+        <h1> Summoner Name: </h1>
+        </br>
+        <div id="inline">
+          <h2 id="summonernameid"><img id="profileicon" src=""/><h2 id="summonernametext">   </h2> </h2>
+        </div>
+      </div>
       <h1> Summoner Level: <h2 id="summonerlevelid"></h2></h1>
       <h1> Summoner Rank: <h2 id="summonerrankid"></h2></h1>
 </body>
