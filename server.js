@@ -7,9 +7,13 @@ var lolapi = require('leagueapi');
 
 lolapi.init(mykey, 'na');
 
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/client/homepage'));
 
 app.get('/:name', function(req, res) {
+  res.sendFile(__dirname + '/client/homepage/index.html');
+})
+
+app.post('/:name', function(req, res) {
   console.log(req.params.name);
   lolapi.Summoner.getByName(req.params.name, function(err, summoner) {
     console.log(summoner);
@@ -17,12 +21,18 @@ app.get('/:name', function(req, res) {
   })
 });
 
-app.get('/:name/:id', function(req, res) {
+app.post('/:name/:id', function(req, res) {
   console.log(req.params.id);
   lolapi.getLeagueEntryData(req.params.id, function(err, json) {
     console.log(json);
     res.json(json);
   })
 });
+
+
+app.get('/user/:name', function(req, res) {
+  res.sendFile(__dirname + '/client/userpage/userpage.html');
+});
+
 app.listen(1337);
 console.log('running on port 1337');

@@ -4,7 +4,7 @@ function getSummoner() {
   //look up summoner based on name
   $.ajax({
     url: "/" + myname,
-    type: 'GET',
+    type: 'POST',
     dataType: 'json',
     data: {
 
@@ -20,7 +20,7 @@ function getSummoner() {
       //now look up ranked info
       $.ajax({
         url: "/" + myname + "/" + id,
-        type: 'GET',
+        type: 'POST',
         dataType: 'json',
         data: {
 
@@ -34,7 +34,6 @@ function getSummoner() {
           $('#summonerrankid').text(rank);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-          alert("error getting ranked info");
           $('#summonerrankid').text("Unranked!");
         }
 
