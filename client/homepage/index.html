@@ -24,6 +24,8 @@
 
 <script src="homepage.js"></script>
 
+<!-- My CSS -->
+<link href="styles/style.css" rel="stylesheet" type="text/css">
 <!--End Dependencies -->
 
 </head>
@@ -32,7 +34,14 @@
     <h2> Enter your summoner name: </h2>
         <input id="username" />
         <input class="btn-primary" onclick="getSummoner();" type="submit" />
-      <h1> Summoner Name: <h2 id="summonernameid"></h2></h1>
+      </br>
+      <div id="summonername">
+        <h1> Summoner Name: </h1>
+        </br>
+          <div id="inline">
+            <h2 id="summonernameid"><img id="profileicon" src=""/>    </h2>
+          </div>
+      </div>
       <h1> Summoner Level: <h2 id="summonerlevelid"></h2></h1>
       <h1> Summoner Rank: <h2 id="summonerrankid"></h2></h1>
 </body>

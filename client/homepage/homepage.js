@@ -15,7 +15,12 @@ function getSummoner() {
       var name = summoner[myname].name.toString();
       var level = summoner[myname].summonerLevel.toString();
       var id = summoner[myname].id.toString();
-      $('#summonernameid').text(name);
+      var profileicon = summoner[myname].profileIconId.toString();
+      var iconsrc = "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/" + profileicon +".png";
+      $('#profileicon').attr('src', iconsrc);
+      $('#profileicon').attr('width', 50);
+      $('#profileicon').attr('length', 50);
+      $('#summonernameid').append("    " + name);
       $('#summonerlevelid').text(level);
       //now look up ranked info
       $.ajax({
