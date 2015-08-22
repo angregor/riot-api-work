@@ -1,5 +1,5 @@
 function getSummoner() {
-  var myname = $("#username").val().toLowerCase();
+  var myname = $("#username").val().toLowerCase().split(" ").join("");
   console.log(myname);
   //look up summoner based on name
   $.ajax({
