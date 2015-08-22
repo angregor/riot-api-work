@@ -1,20 +1,21 @@
 var express = require('express');
 var lolapi = require('leagueapi');
-console.log("hello");
+
 var app = express();
 var path = require('path');
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || 1337; //either use the port provided by process or default to 1337
 var https = require('https');
-var mykey = //your key;
-
+//riot games api key
+var mykey = //insert key here;
+//create instance of lolapi using my api key
 lolapi.init(mykey, 'na');
-
+//sets the default set of files to use for the homepage
 app.use(express.static(__dirname + '/client/homepage'));
-
+//creates the route for GET requests on /'name'
 app.get('/:name', function(req, res) {
   res.sendFile(__dirname + '/client/homepage/index.html');
 })
-
+//creates the route for POST requests on /'name'
 app.post('/:name', function(req, res) {
   console.log(req.params.name);
   lolapi.Summoner.getByName(req.params.name, function(err, summoner) {
@@ -22,7 +23,7 @@ app.post('/:name', function(req, res) {
     res.json(summoner);
   })
 });
-
+//creates the route for POST requests on /'name'/'id'
 app.post('/:name/:id', function(req, res) {
   console.log(req.params.id);
   lolapi.getLeagueEntryData(req.params.id, function(err, json) {
@@ -31,7 +32,7 @@ app.post('/:name/:id', function(req, res) {
   })
 });
 
-
+//creates the route for GET requests on /user/'name'
 app.get('/user/:name', function(req, res) {
   res.sendFile(__dirname + '/client/userpage/userpage.html');
 });
