@@ -1,0 +1,13 @@
+html {
+  text-align: center;
+}
+
+#summonername {
+  display: inline-block;
+}
+
+#inline {
+  clear: left;
+  float: left;
+  width: 600px;
+}
