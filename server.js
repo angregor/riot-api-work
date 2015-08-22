@@ -31,10 +31,10 @@ app.post('/:name/:id', function(req, res) {
   })
 });
 
-/*
+
 app.get('/user/:name', function(req, res) {
   res.sendFile(__dirname + '/client/userpage/userpage.html');
 });
-*/
+
 app.listen(port);
 console.log('running on port 1337');
