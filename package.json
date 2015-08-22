@@ -1,0 +1,15 @@
+{
+  "name": "lightweight-lol-stats",
+  "description": "lightweight lol stats",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "leagueapi": "^0.4.10"
+  },
+  "engines": {
+    "node": "0.12.x"
+  }
+}
