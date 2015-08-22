@@ -3,6 +3,7 @@ var lolapi = require('leagueapi');
 console.log("hello");
 var app = express();
 var path = require('path');
+var port = process.env.PORT || 1337;
 var https = require('https');
 var mykey = "70ce1698-3e0d-42ce-a885-14d6da5cd691";
 
@@ -30,10 +31,10 @@ app.post('/:name/:id', function(req, res) {
   })
 });
 
-
+/*
 app.get('/user/:name', function(req, res) {
   res.sendFile(__dirname + '/client/userpage/userpage.html');
 });
-
-app.listen(1337);
+*/
+app.listen(port);
 console.log('running on port 1337');
