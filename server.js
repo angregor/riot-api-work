@@ -6,7 +6,7 @@ var path = require('path');
 var port = process.env.PORT || 1337; //either use the port provided by process or default to 1337
 var https = require('https');
 //riot games api key
-var mykey = "70ce1698-3e0d-42ce-a885-14d6da5cd691";
+var mykey = //your key;
 //create instance of lolapi using my api key
 lolapi.init(mykey, 'na');
 //sets the default set of files to use for the homepage
@@ -34,7 +34,7 @@ app.post('/:name/:id', function(req, res) {
 
 //creates the route for GET requests on /user/'name'
 app.get('/user/:name', function(req, res) {
-  res.sendFile(__dirname + '/client/userpage/userpage.html');
+  res.sendFile(__dirname + '/client/userpage');
 });
 
 app.listen(port);
