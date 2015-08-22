@@ -5,7 +5,7 @@ var app = express();
 var path = require('path');
 var port = process.env.PORT || 1337;
 var https = require('https');
-var mykey = "70ce1698-3e0d-42ce-a885-14d6da5cd691";
+var mykey = //key;
 
 lolapi.init(mykey, 'na');
 
